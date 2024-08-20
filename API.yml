@@ -1,0 +1,35 @@
+openapi: 3.0.3
+
+info:
+  title: STD23061 - TD1
+  version: 1.0.0
+
+servers:
+  - url: https://localhost.STD23061.com
+
+paths:
+  /clients:
+    get:
+      summary: "Obtenir la liste des clients"
+      description: "Cette requête permet d'obtenir une liste de tous les clients."
+      responses:
+        "200":
+          description: "La requête a réussi et la liste des clients est retournée."
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Client"
+
+components:
+  schemas:
+    Client:
+      type: object
+      properties:
+        nom:
+          type: string
+          description: "Le nom du client."
+        age:
+          type: integer
+          description: "L'âge du client."
